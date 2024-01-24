@@ -1,0 +1,139 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>    
+</head>
+<body>
+    <h1>Hello, welcome to Medical Task Assignment app </h1>
+    <div>
+        <button onclick="window.location.href='/';">Home</button>
+        <button onclick="window.location.href='http://127.0.0.1:8080/admin/auth/user/';">Medical Coder</button>
+
+        <button onclick="window.location.href='/TaskAllocatedUserWise';">Task Allocated User Wise</button>
+        <button onclick="window.location.href='/MedicalChartListWithCurrentStatus';">Medical Chart List With Current Status</button>
+        <button onclick="window.location.href='/firstTimeAssingment';">First Time Assingment</button>
+        <button onclick="window.location.href='/resetStatus';">Reset Status</button>
+        </div>
+    
+    <h1>User Information Table</h1>
+    {% for d in data %}
+    <h3>{{d.user}}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>medicalChartStatus</th>
+                <th>Change Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in d.charts %}
+                <tr>
+                    <td>{{ c.id }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.medicalChartStatus.name }}</td>
+                    <td>
+                        <button>In Progress</button>
+                        <button>Completed</button>
+                        <button>Hold</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</body>
+</html> -->
+
+<!-- ------------------------------------------------ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Task Assignment App</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>    
+
+
+</head>
+<body>
+    <div style="margin-top: 40px;">
+        <button onclick="window.location.href='/';">Home</button>
+        <button onclick="window.location.href='http://127.0.0.1:8080/admin/auth/user/';">Medical Coder</button>
+        <button onclick="window.location.href='/TaskAllocatedUserWise';">Task Allocated User Wise</button>
+        <button onclick="window.location.href='/MedicalChartListWithCurrentStatus';">Medical Chart List With Current Status</button>
+        <button onclick="window.location.href='/firstTimeAssingment';">First Time Assignment</button>
+        <button onclick="window.location.href='/resetStatus';">Reset Status</button>
+    </div>
+    
+    <h1>User Information Table</h1>
+    {% for d in data %}
+        <h3>{{ d.user }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>medicalChartStatus</th>
+                    <th>Change Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in d.charts %}
+                    <tr>
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.name }}</td>
+                        <td>{{ c.medicalChartStatus.name }}</td>
+                        <td>
+
+                        <button onclick="window.location.href='/medicalChartChangeStatus/{{ c.id }}/3/';">In Progress</button>
+                        <button onclick="window.location.href='/medicalChartChangeStatus/{{ c.id }}/4/';">Completed</button>
+                        <button onclick="window.location.href='/medicalChartChangeStatus/{{ c.id }}/5/';">Hold</button>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>

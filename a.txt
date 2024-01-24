@@ -1,0 +1,41 @@
+Things to build for prototype:
+
+Background - InventHealth is building a coder workbench where medical coders log-in and work on the medical charts (PDF) assigned to them. 
+You need to make sure that the work allocation is automated and medical coders do not sit idle if there are charts to be 
+worked on.
+
+Create a chart / task allocation functionality for medical coders with the following constraints:
+You have 5 medical coders
+You have 150 medical charts
+A chart can be in one of the following statuses:
+Unassigned - Chart is not assigned to any medical coder so far and can be considered for allocation
+In Queue - The chart is assigned to a medical coder but has not started working on it
+In Progress - The coder is actively working on that chart
+Completed - Coder has completed working on that chart
+Hold - The coder has put the chart on hold to get queries addressed
+Each coder can have a maximum of 10 medical charts in the queue
+Chart assignment must be even across all coders
+
+Data and Tech Specs:
+Feel free to use the stack you like as long as the work is done in Python. Though we prefer flask, for the interview 
+we do not have the compulsion 
+to use flask
+Create a database of your choice. We are using MongoDB. But you are free to use database of your choice for the 
+interview
+Create the dummy data based on your understanding. It is important to know which chart is assigned to a specific 
+coder and 
+its corresponding status
+
+When presenting the solution, focus on the following points:
+The logical flow of assignment
+Your database schema and model
+Front-end is not too important for the demo, but a simple working front-end would be nice to see
+
+User-5(max-10 chart in queue)
+chart-150(Unassigned,InQueue,InProgress,Completed, Hold)
+
+
+change status on click
+auto assignment after 1 time
+
+

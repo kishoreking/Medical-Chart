@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>    
+</head>
+<body>
+
+    <div style="margin-top: 40px;">
+        <button onclick="window.location.href='/';">Home</button>
+        <button onclick="window.location.href='http://127.0.0.1:8080/admin/auth/user/';">Medical Coder</button>
+
+        <button onclick="window.location.href='/TaskAllocatedUserWise';">Task Allocated User Wise</button>
+        <button onclick="window.location.href='/MedicalChartListWithCurrentStatus';">Medical Chart List With Current Status</button>
+        <button onclick="window.location.href='/firstTimeAssingment';">First Time Assingment</button>
+        <button onclick="window.location.href='/resetStatus';">Reset Status</button>
+    </div>
+    
+    <h1>User Information Table</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>medicalChartStatus</th>
+                <th>Assigned To</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.name }}</td>
+                    <td>{{ d.medicalChartStatus.name }}</td>
+                    <td>{{ d.assignedTo.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
